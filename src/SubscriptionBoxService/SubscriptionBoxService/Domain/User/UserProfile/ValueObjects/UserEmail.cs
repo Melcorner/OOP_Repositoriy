@@ -17,12 +17,13 @@ public record UserEmail
         {
             throw new ArgumentException("Почта не была указана.");
         }
-
+        
         string formatted = value.Trim();
-        if (!IsUserEmailValid(formatted))
-        {
-            throw new ArgumentException("Почта была некорректной.");
-        }
+        Regex emailRegex = new Regex(@"/\b([^\d]\w+)[@]([^\d]\w+)[.](com|ru)\b/gm", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        Match emailMatch = emailRegex.Match(value);
+        if (!emailMatch.Success)
+            throw new ArgumentException("Почта не корректного формата");
+
         return Create(formatted);
     }
 
