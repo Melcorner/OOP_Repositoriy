@@ -1,4 +1,5 @@
 using Domain.Subscription.ValueObjects;
+using Domain.Subscription.ValueObjects.Enumerations;
 
 namespace Domain.Subscription;
 

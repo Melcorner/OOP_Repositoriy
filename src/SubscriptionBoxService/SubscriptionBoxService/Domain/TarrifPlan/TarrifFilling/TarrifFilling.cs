@@ -1,13 +1,14 @@
 using Domain.TarrifPlan.TarrifFilling.ValueObjects;
+using Domain.TarrifPlan.TarrifFilling.ValueObjects.Enumerations;
 
 namespace Domain.TarrifPlan.TarrifFilling;
 
 public class TarrifFilling
 {
-    public TFProductCategory Category { get; }
+    public TFCategory Category { get; }
     public TFProductAmount Amount { get; }
 
-    public TarrifFilling(TFProductCategory category, TFProductAmount amount)
+    public TarrifFilling(TFCategory category, TFProductAmount amount)
     {
         Category = category;
         Amount = amount;
