@@ -2,7 +2,7 @@ namespace Domain.Delivery.ValueObjects;
 
 public record DeliveryUserID
 {
-    private Guid Id { get; }
+    public Guid Id { get; }
     private DeliveryUserID(Guid id)
     {
         Id = id;

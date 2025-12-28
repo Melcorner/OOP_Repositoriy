@@ -2,7 +2,7 @@ namespace Domain.Product.ValueObjects;
 
 public record ProductID
 {
-    private Guid Id { get; }
+    public Guid Id { get; }
     private ProductID(Guid id)
     {
         Id = id;

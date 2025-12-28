@@ -1,9 +1,11 @@
 using Domain.Product.ValueObjects;
+using Domain.Product.ValueObjects.Enumerations;
 
 namespace Domain.Product;
 
-public class Product
+public sealed class Product
 {
+    public Box.Box Box { get; }
     public ProductID ProductId { get; }
     public ProductName ProductName { get; }
     public ProductPrice ProductPrice { get; }
@@ -15,12 +17,14 @@ public class Product
         ProductName productName,
         ProductPrice productPrice,
         ProductCategory productCategory,
-        ProductAmountInStock productAmountInStock)
+        ProductAmountInStock productAmountInStock,
+        Box.Box box)
     {
         ProductId = productId;
         ProductName = productName;
         ProductPrice = productPrice;
         ProductCategory = productCategory;
         ProductAmountInStock = productAmountInStock;
+        Box = box;
     }
 }

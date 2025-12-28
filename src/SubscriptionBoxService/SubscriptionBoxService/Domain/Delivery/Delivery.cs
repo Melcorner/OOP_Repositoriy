@@ -1,21 +1,22 @@
 using Domain.Delivery.ValueObjects;
+using Domain.Delivery.ValueObjects.Enumerations;
 
 namespace Domain.Delivery;
 
-public class Delivery
+public sealed class Delivery
 {
-    public DeliveryBoxTrackNum TarckNumber { get; }
+    public DeliveryBoxTrackNum TrackNumber { get; }
     public DeliveryUserID UserID { get; }
     public DeliveryUserAddress UserAddress { get; }
     public DeliveryStatus Status { get; }
 
     public Delivery(
-        DeliveryBoxTrackNum tarckNumber,
+        DeliveryBoxTrackNum trackNumber,
         DeliveryUserID userID,
         DeliveryUserAddress userAddress,
         DeliveryStatus status)
     {
-        TarckNumber = tarckNumber;
+        TrackNumber = trackNumber;
         UserID = userID;
         UserAddress = userAddress;
         Status = status;

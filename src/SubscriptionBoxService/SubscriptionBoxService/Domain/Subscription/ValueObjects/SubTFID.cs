@@ -2,7 +2,7 @@ namespace Domain.Subscription.ValueObjects;
 
 public record SubTFID
 {
-    private Guid Id { get; }
+    public Guid Id { get; }
     private SubTFID(Guid id)
     {
         Id = id;
