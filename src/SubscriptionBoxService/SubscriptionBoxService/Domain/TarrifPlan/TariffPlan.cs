@@ -1,24 +1,27 @@
+using Domain.TarrifPlan.TarrifFilling.ValueObjects;
+using Domain.TarrifPlan.TarrifFilling.ValueObjects.Enumerations;
 using Domain.TarrifPlan.ValueObjects;
 
 namespace Domain.TarrifPlan;
 
-public class TarrifPlan
+public sealed class TarrifPlan
 {
     public TarrifPlanID TarrifPlanId { get; }
     public TarrifPlanName TarrifPlanName { get; }
     public TarrifPlanPrice TarrifPlanPrice { get; }
-    public IReadOnlyCollection<TarrifFilling.TarrifFilling> Fillings { get; }
+    public TarrifFilling.TarrifFilling Fillings { get; }
 
     public TarrifPlan(
         TarrifPlanID id, 
         TarrifPlanName name,
         TarrifPlanPrice price, 
-        IEnumerable<TarrifFilling.TarrifFilling> fillings
+        TFCategory category,
+        TFProductAmount  productAmount
         )
     {
         TarrifPlanId = id;
         TarrifPlanName = name;
         TarrifPlanPrice = price;
-        Fillings = fillings.ToList();
+        Fillings = new TarrifFilling.TarrifFilling(category, productAmount);
     }
 }

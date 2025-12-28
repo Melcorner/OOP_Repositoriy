@@ -2,7 +2,7 @@ namespace Domain.Box.ValueObjects;
 
 public record BoxTFID
 {
-    private Guid Id { get; }
+    public Guid Id { get; }
     private BoxTFID(Guid id)
     {
         Id = id;

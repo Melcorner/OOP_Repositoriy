@@ -1,24 +1,30 @@
 using Domain.User.ValueObjects;
+using Domain.User.UserCredentials.ValueObjects;
+using Domain.User.UserProfile.ValueObjects;
 
 namespace Domain.User;
 
-public class User
+public sealed class User
 {
     public UserID Id { get; }
     public UserAddress Address { get; }
-    public IReadOnlyCollection<UserCredentials.UserCredentials>  Credentials { get; }
-    public IReadOnlyCollection<UserProfile.UserProfile>  Profiles { get; }
+    public UserCredentials.UserCredentials Credentials { get; }
+    public UserProfile.UserProfile Profiles { get; }
 
     public User(
         UserID id,
         UserAddress address,
-        IEnumerable<UserCredentials.UserCredentials> credentials,
-        IEnumerable<UserProfile.UserProfile> profiles
+        UserLogin login,
+        UserPassword password,
+        UserDoB doB,
+        UserEmail email,
+        UserName name,
+        UserSurname surname
     )
     {
         Id = id;
         Address = address;
-        Credentials = credentials.ToList();
-        Profiles = profiles.ToList();
+        Credentials = new UserCredentials.UserCredentials(login, password);
+        Profiles = new UserProfile.UserProfile(name, surname, doB, email);
     }
 }

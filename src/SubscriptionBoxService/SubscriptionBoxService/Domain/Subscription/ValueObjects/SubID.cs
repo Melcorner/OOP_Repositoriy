@@ -2,7 +2,7 @@ namespace Domain.Subscription.ValueObjects;
 
 public record SubID
 {
-    private Guid Id { get; }
+    public Guid Id { get; }
     private SubID(Guid id)
     {
         Id = id;
